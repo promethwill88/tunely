@@ -9,32 +9,35 @@
 /* hard-coded data! */
 var sampleAlbums = [];
 sampleAlbums.push({
-             artistName: 'Ladyhawke',
-             name: 'Ladyhawke',
-             releaseDate: '2008, November 18',
-             genres: [ 'new wave', 'indie rock', 'synth pop' ]
+             artistName: 'Elton John',
+             name: 'Goodbye Yellow Brick Road',
+             releaseDate: '1979, Feburary 9',
+             genres: [ 'Rock', 'Pop' ]
            });
 sampleAlbums.push({
-             artistName: 'The Knife',
-             name: 'Silent Shout',
-             releaseDate: '2006, February 17',
-             genres: [ 'synth pop', 'electronica', 'experimental' ]
+             artistName: 'The Beatles',
+             name: 'Rubber Soul',
+             releaseDate: '1965, December 3',
+             genres: [ 'Rock', 'Pop' ]
            });
 sampleAlbums.push({
-             artistName: 'Juno Reactor',
-             name: 'Shango',
-             releaseDate: '2000, October 9',
-             genres: [ 'electronic', 'goa trance', 'tribal house' ]
+             artistName: 'The Beatles',
+             name: 'The Beatles - The White Album',
+             releaseDate: '1968, November 22',
+             genres: [ 'Rock', 'Pop' ]
            });
 sampleAlbums.push({
-             artistName: 'Philip Wesley',
-             name: 'Dark Night of the Soul',
-             releaseDate: '2008, September 12',
-             genres: [ 'piano' ]
+             artistName: 'Led Zeppelin',
+             name: 'Led Zeppelin II',
+             releaseDate: '1969, October 22',
+             genres: [ 'Hard Rock' ]
            });
 /* end of hard-coded data */
+console.log(sampleAlbums);
+console.log(sampleAlbums[0].artistName);
 
-
+// $('.album-name').append(sampleAlbums[0].artistName);
+$('.list-group').append('<li class="list-group-item"><h4 class="inline-header">Album Name:</h4><span class="album-name">' + sampleAlbums[0].artistName + '</span></li>');
 
 
 $(document).ready(function() {
