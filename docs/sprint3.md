@@ -42,10 +42,10 @@ We're going to create an embedded model for songs and embed it in albums.  We've
 
 1. Open the file and create a song schema with properties including:
 
-  ```js
-    name: String,
-    trackNumber: Number
-  ```
+  	```js
+    	name: String,
+    	trackNumber: Number
+  	```
 
 1. Use your schema to create a `Song` model.
 
@@ -55,7 +55,7 @@ We're going to create an embedded model for songs and embed it in albums.  We've
 
 1. Alter the `AlbumSchema` to have a `songs` array that uses the song schema (available through the model as `Song.schema`).
 
-> You may have seen embedded models defined in the same file as the model that it's embedded in; that's OK.  Here we're building it in a separate file.
+	> You may have seen embedded models defined in the same file as the model that it's embedded in; that's OK.  Here we're building it in a separate file.
 
 ## Step 2: Seeding Songs
 
@@ -87,7 +87,7 @@ We'd like to list songs along with each album.  For now, keep this simple using 
 
 1. Modify the HTML template string to include a section listing all the songs in the album. To simplify this process, consider building up your list of songs outside of the template.
 
-  Hint: You can use the array method `.join()` to quickly combine all the song names, but a better solution would probably involve first using `.map` to build up an array of HTML strings (e.g. `["- (1) Swamped", "- (2) Heaven's a Lie"]`) before joining them together.
+  	Hint: You can use the array method `.join()` to quickly combine all the song names, but a better solution would probably involve first using `.map` to build up an array of HTML strings (e.g. `["- (1) Swamped", "- (2) Heaven's a Lie"]`) before joining them together.
 
 1. Test to make sure this is working. Once your template is set, you should see the songs listed under each album on the page.
 
@@ -123,21 +123,20 @@ First, we need to make sure we have the album id so we can use it later.  To get
 
 1. Refresh the page and inspect the HTML in the browser.  Make sure the attribute is set and is different for each album. Here's an example:
 
-  ![example](assets/images/sprint3_album_id_example.png)
+  	![example](assets/images/sprint3_album_id_example.png)
 
 1. Add a button inside the panel footer:
 
-  [button inside panel footer](assets/images/sprint3_add_song_button.png).
+  	[button inside panel footer](assets/images/sprint3_add_song_button.png).
 
 	<details><summary> click to see button code</summary>
-	```js
-	<div class='panel-footer'>
-	  <button class='btn btn-primary add-song'>Add Song</button>
-	</div>
-	```
+		```js
+		<div class='panel-footer'>
+	  	<button class='btn btn-primary add-song'>Add Song</button>
+		</div>
+		```
 
-    > CSS IDs must be unique, so we'll target each of these buttons with a compound CSS selector including the `add-song` class.
-
+    		> CSS IDs must be unique, so we'll target each of these buttons with a compound CSS selector including the `add-song` class.
 	</details>
 
 
@@ -161,13 +160,13 @@ First, we need to make sure we have the album id so we can use it later.  To get
 
 1.  Set the data attribute `album-id` on the `#songModal`.  We'll use this to keep track of which album the modal is referring to at any time.
 
-  <details><summary>Hint: setting `data-album-id`</summary>
+  	<details><summary>Hint: setting `data-album-id`</summary>
 
-  ```js
-  $('#songModal').data('album-id', id);
-  ```
+  	```js
+  	$('#songModal').data('album-id', id);
+  	```
 
-  </details>
+  	</details>
 
 1. You can open a Bootstrap modal by selecting it in jQuery and calling Bootstrap's `.modal()` function.  After setting the `data-album-id` attribute in your function, click your button to trigger the modal.  It should appear on screen!
 
@@ -180,7 +179,7 @@ We should now have a working modal that opens and closes, but it doesn't do anyt
 Let's add a function to handle saving a new song modal -- `POST` the input data as a new song. Here's pseudocode:
 
 	```
-  // pseudocode!
+  	// pseudocode!
 	// call this when the save new song button is clicked
 	function handleNewSongSubmit(e) {
 	  e.preventDefault();
@@ -224,23 +223,23 @@ Of course, we need to add the POST route on the server.  We're going to be using
 
 	> You can easily test this route by finding a valid ID and then using postman, curl, or your browser console.
 
-  To get back and display the created song on the page, you have a couple of options:
+  	To get back and display the created song on the page, you have a couple of options:
 
-  **A)** Have `POST /api/albums/:album_id/songs` respond with only the newly created song, then make a request to `GET /api/albums/:album_id` to get the entire album and render that on the page.  (You'll need to add the `show` function in `albumsController` and the route above in `server.js`.)
-  > This is a very common approach and probably the most standard.  
-  > The solutions will take this route (and you're encouraged to as well).
+  	**A)** Have `POST /api/albums/:album_id/songs` respond with only the newly created song, then make a request to `GET /api/albums/:album_id` to get the entire album and render that on the page.  (You'll need to add the `show` function in `albumsController` and the route above in `server.js`.)
+  	> This is a very common approach and probably the most standard.  
+  	> The solutions will take this route (and you're encouraged to as well).
 
-  **OR**
+  	**OR**
 
-  **B)** Have your `POST /api/albums/:album_id/songs` route return the entire album instead of just the song.  Then re-render the album on the page.
+  	**B)** Have your `POST /api/albums/:album_id/songs` route return the entire album instead of just the song.  Then re-render the album on the page.
 
-  > This has the advantage of reducing the number of requests from client to server.  But _usually_ the response to a request creating a resource would contain just the newly created document (not its parent).
+  	> This has the advantage of reducing the number of requests from client to server.  But _usually_ the response to a request creating a resource would contain just the newly created document (not its parent).
 
 
 1.  Close the modal automatically after the new song request has been made.
 
-  > Hint: `$('#id-to-modal').modal('hide');`
-  > [Bootstrap modal docs](http://getbootstrap.com/javascript/#modals)
+	> Hint: `$('#id-to-modal').modal('hide');`
+	> [Bootstrap modal docs](http://getbootstrap.com/javascript/#modals)
 
 
 ## Stretch Challenges
@@ -249,10 +248,10 @@ Of course, we need to add the POST route on the server.  We're going to be using
 
 1. Add the remaining JSON API routes to **Read** songs:
 
-  ```
-  GET /api/albums/:album_id/songs/:id  (show)
-  GET /api/albums/:album_id/songs      (index)
-  ```
+  	```
+  	GET /api/albums/:album_id/songs/:id  (show)
+  	GET /api/albums/:album_id/songs      (index)
+  	```
 
 1. Add track length as a field for each song.  
 
