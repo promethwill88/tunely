@@ -206,7 +206,7 @@ You've already been using Node.js's modules to bring code for database models in
 
 1. In `controllers/albumsController.js`, add a skeleton where you'll create and export the request handler callbacks for each albums API route. That is, add the following code:
 
-    <details><summary>click to expand</summary>
+  <details><summary>click to expand</summary>
   
   ```js
   // controllers/albumsController.js
@@ -237,7 +237,7 @@ You've already been using Node.js's modules to bring code for database models in
   }
   ```
   
-    </details>
+  </details>
 
 2. Also, after the function definitions, add each function to the `exports` object for this module:
 
