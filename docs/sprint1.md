@@ -46,7 +46,7 @@ Let's start on the outside and work our way in.
 
 1. Update your code to use **all** the sample albums in the `sampleAlbums` array by rendering each one individually and adding it to the page.  Try to use `sampleAlbums.forEach` to call `renderAlbum` on each album.
 
-  At this point you should see all the hard-coded albums from `app.js`'s `sampleAlbums` rendered on page.
+    At this point you should see all the hard-coded albums from `app.js`'s `sampleAlbums` rendered on page.
 
 1. Now, we're going to break this piece of code again, with the intention of fixing it by improving our server side routes. **Add an AJAX call** that will GET all of the albums from the path `/api/albums`. Upon a successful response from the server, this AJAX call should render the data to the page.
 
