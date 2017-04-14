@@ -130,6 +130,7 @@ First, we need to make sure we have the album id so we can use it later.  To get
   	[button inside panel footer](assets/images/sprint3_add_song_button.png).
 
 	<details><summary> click to see button code</summary>
+		
 		```js
 		<div class='panel-footer'>
 	  	<button class='btn btn-primary add-song'>Add Song</button>
@@ -145,17 +146,17 @@ First, we need to make sure we have the album id so we can use it later.  To get
 
 1. In your click event handler, get the current album row's `data-album-id` attribute.
 
-  ```js
-  $('#albums').on('click', '.add-song', function(e) {
-      console.log('add-song clicked!');
-      var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-      console.log('id',id);
-  });
-  ```
+  	```js
+  	$('#albums').on('click', '.add-song', function(e) {
+      		console.log('add-song clicked!');
+      		var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+      		console.log('id',id);
+  	});
+  	```
 
 
-  > This code might be new to you.  You may want to read the jQuery documentation for `parents` or `closest` and `data`.
-  > We've added a  CSS selector as a second argument to the `on` method. Because the `.add-song` element is not going to be on the page at document-ready, our event listener cannot bind to it at that time.  Instead, we'll bind to something above it in the DOM tree, like `body` or `#albums`. As long as that element is on the page when we add our event listener, we will be able to capture the click. Then, if it's on an element with class `.add-song`, jQuery will trigger this event handler.
+  	> This code might be new to you.  You may want to read the jQuery documentation for `parents` or `closest` and `data`.
+  	> We've added a  CSS selector as a second argument to the `on` method. Because the `.add-song` element is not going to be on the page at document-ready, our event listener cannot bind to it at that time.  Instead, we'll bind to something above it in the DOM tree, like `body` or `#albums`. As long as that element is on the page when we add our event listener, we will be able to capture the click. Then, if it's on an element with class `.add-song`, jQuery will trigger this event handler.
 
 
 1.  Set the data attribute `album-id` on the `#songModal`.  We'll use this to keep track of which album the modal is referring to at any time.
