@@ -1,2 +1,2 @@
-let mongoose = require("mongoose");
-mongoose.connect( "mongodb://localhost/tunely");
+//let mongoose = require("mongoose");
+//mongoose.connect( "mongodb://localhost/tunely");

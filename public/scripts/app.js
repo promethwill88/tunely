@@ -37,11 +37,11 @@ console.log(sampleAlbums);
 console.log(sampleAlbums[0].artistName);
 
 // $('.album-name').append(sampleAlbums[0].artistName);
-$('.list-group').append('<li class="list-group-item"><h4 class="inline-header">Album Name:</h4><span class="album-name">' + sampleAlbums[0].artistName + '</span></li>');
 
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+$('.list-group').append('<li class="list-group-item"><h4 class="inline-header">Album Name:</h4><span class="album-name">' + sampleAlbums[0].artistName + '</span></li>');
 });
 
 
