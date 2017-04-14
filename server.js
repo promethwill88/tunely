@@ -15,11 +15,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+var controllers = require('./controllers');
+
 /************
  * DATABASE *
  ************/
 
-//let db = require('./models');
+let db = require('./models');
 
 /**********
  * ROUTES *
@@ -61,6 +63,13 @@ app.get('/', function homepage(req, res) {
       }
     ]
   })
+});
+
+
+ app.get('/api/home', function apiIndex(req, res) {
+  // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
+  // It would be seriously overkill to save any of this to your database.
+  
 });
 
  /**********
