@@ -131,14 +131,15 @@ First, we need to make sure we have the album id so we can use it later.  To get
 
 	<details><summary> click to see button code</summary>
 		
-		```js
+		```html
 		<div class='panel-footer'>
 	  	<button class='btn btn-primary add-song'>Add Song</button>
 		</div>
 		```
-
-    		> CSS IDs must be unique, so we'll target each of these buttons with a compound CSS selector including the `add-song` class.
+    		
 	</details>
+	
+	> CSS IDs must be unique, so we'll target each of these buttons with a compound CSS selector including the `add-song` class.
 
 
 
