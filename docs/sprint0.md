@@ -207,6 +207,7 @@ You've already been using Node.js's modules to bring code for database models in
 1. In `controllers/albumsController.js`, add a skeleton where you'll create and export the request handler callbacks for each albums API route. That is, add the following code:
 
   <details><summary>click to expand</summary>
+  
   ```js
   // controllers/albumsController.js
   // GET /api/albums
@@ -235,6 +236,7 @@ You've already been using Node.js's modules to bring code for database models in
     // and send it back as JSON
   }
   ```
+  
   </details>
 
 2. Also, after the function definitions, add each function to the `exports` object for this module:
@@ -292,6 +294,7 @@ You've already been using Node.js's modules to bring code for database models in
                 genres: [ 'country', 'rock' ]
               });
     ```
+    
     </details>
 
 2. Also for continuity with later sprints, create a `seed.js` file in the base directory of your project. Add the following code to it:
