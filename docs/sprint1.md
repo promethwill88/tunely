@@ -38,6 +38,7 @@ Let's start on the outside and work our way in.
     renderAlbum(sampleAlbums[0]);
   });
   ```
+
   </details>
 
 
@@ -47,7 +48,7 @@ Let's start on the outside and work our way in.
 
   At this point you should see all the hard-coded albums from `app.js`'s `sampleAlbums` rendered on page.
 
-1. Now, we're going to break this piece of code again, with the intention of fixing it by improving our server side routes. **Add an AJAX call** that will GET all of the albums from the path `/api/albums`. Upon a successful response from the server, this AJAX call should render the data to the page. 
+1. Now, we're going to break this piece of code again, with the intention of fixing it by improving our server side routes. **Add an AJAX call** that will GET all of the albums from the path `/api/albums`. Upon a successful response from the server, this AJAX call should render the data to the page.
 
 <details><summary>Click to see how to request and render all of the albums with a template string</summary>
 
@@ -107,8 +108,8 @@ function renderAlbum(album) {
 
   $('#albums').prepend(htmlToAppend);
 };
-
 ```
+
 </details>
 
 Because the GET `/api/albums` route isn't configured yet, our site won't display data anymore. You should now see an error in your console:
@@ -141,7 +142,6 @@ We'll use the module pattern to make these "controller" functions available in t
 1. The `$.ajax` call in `app.js` should be functional now! Check in the browser to see that your server-side data is rendering and that the error messages aren't showing up anymore.
 
 ## Step 3: Database Setup
-
 
 1. If you haven't yet, use `npm` to install `mongoose`.  Save it as a dependency of your project with `--save`.
 
