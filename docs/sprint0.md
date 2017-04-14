@@ -46,13 +46,15 @@ A front-end skeleton is already in place (you can view it directly from your fil
 
 2. Install and save `express`, `body-parser`, and `mongoose` Node.js packages.  
 
-  <details><summary>click for code to run in terminal</summary>
-  ```bash
-  npm install --save express body-parser mongoose
-  ```
-  </details>
+    <details><summary>click for code to run in terminal</summary>
+  
+    ```bash
+    npm install --save express body-parser mongoose
+    ```
+  
+    </details>
 
-  > Confirm that the packages have been saved as dependencies in your `package.json`.
+    > Confirm that the packages have been saved as dependencies in your `package.json`.
 
 3. Create a `server.js` file.  In this file:
   - `require` Express
@@ -60,7 +62,7 @@ A front-end skeleton is already in place (you can view it directly from your fil
   - add a route so your server will respond to `GET /` with a simple message
   - tell the app to `listen` on a port so that the server will start
 
-  > It's okay if you need to reference code for this steps! Check the sprint 0 solutions branch or see recent notes and projects.
+    > It's okay if you need to reference code for this steps! Check the sprint 0 solutions branch or see recent notes and projects.
 
 4. Start your server, and make sure you see your message when you visit the `/` route.
 
@@ -69,29 +71,31 @@ A front-end skeleton is already in place (you can view it directly from your fil
 
 1. We're going to serve `index.html` on the root route, `/`, so change the current GET `/` route from serving your message to sending the `index.html` file.
 
-  <details><summary>hint: click for code</summary>
-  ```
-  // inside the GET / route
-  res.sendFile('views/index.html' , { root : __dirname});
-  ```
-  </details>
+    <details><summary>hint: click for code</summary>
+  
+    ```
+    // inside the GET / route
+    res.sendFile('views/index.html' , { root : __dirname});
+    ```
+  
+    </details>
 
-  Curious about what this does? Try logging `__dirname` to your console.
+    Curious about what this does? Try logging `__dirname` to your console.
 
-  > If you restart your server now and visit 'localhost:3000' in the browser, you'll notice the site now shows the contents of the html file. From now on, **do not visit your site by opening `index.html` in the browser.** Visit it by making a request to the correct URL (`localhost:3000/`).
+    > If you restart your server now and visit 'localhost:3000' in the browser, you'll notice the site now shows the contents of the html file. From now on, **do not visit your site by opening `index.html` in the browser.** Visit it by making a request to the correct URL (`localhost:3000/`).
 
-  > Your page should show missing JavaScript and CSS.  We will fix that by serving the contents of the `public` directory from the server as well.
+    > Your page should show missing JavaScript and CSS.  We will fix that by serving the contents of the `public` directory from the server as well.
 
 ## Step 3: Serve static files from Express.
 
 1. Set up the express app to serve the `public` directory as a static file directory.
 
-  ```js
+    ```js
     // server.js
     app.use(express.static('public'));
-  ```
+    ```
 
-  > This serves the files and directories inside `public` "next to" `index.html`, so `index.html` will be able to access everything inside `public` as if `index.html` were in the `public` directory, too.
+    > This serves the files and directories inside `public` "next to" `index.html`, so `index.html` will be able to access everything inside `public` as if `index.html` were in the `public` directory, too.
 
 2. Reconnect the client-side JavaScript to your view by updating the `script` tag in `index.html`.  Get a sanity check log message from your `app.js` to appear in your browser dev tools console.
 
@@ -110,13 +114,15 @@ Time to prepare a file structure for pulling data from an API!
 
 2. In `models/index.js`, require mongoose and connect to a database for the tunely app.
 
-  <details><summary>click to see a code reminder</summary>
-  ```js
-  // models/index.js
-  var mongoose = require("mongoose");
-  mongoose.connect("mongodb://localhost/tunely");
-  ```
-  </details>
+    <details><summary>click to see a code reminder</summary>
+  
+    ```js
+    // models/index.js
+    var mongoose = require("mongoose");
+    mongoose.connect("mongodb://localhost/tunely");
+    ```
+  
+    </details>
 
 3. In `models/album.js`, require mongoose and, if you'd like, set up a shorthand `Schema` variable to stand in for `mongoose.Schema`.
 
@@ -252,65 +258,68 @@ You've already been using Node.js's modules to bring code for database models in
 
 1. We don't have the database set up yet, but we can start thinking about some data. Purely for continuity with later sprints, add the following starter album information at the top of  `controllers/albumsController.js`:
 
-  <details><summary>click to expand</summary>
-  ```js
-  // controllers/albumsController.js
-  var albums = [];
-  albums.push({
+    <details><summary>click to expand</summary>
+    
+    ```js
+    // controllers/albumsController.js
+    var albums = [];
+    albums.push({
                 _id: 132,
                 artistName: 'Nine Inch Nails',
                 name: 'The Downward Spiral',
                 releaseDate: '1994, March 8',
                 genres: [ 'industrial', 'industrial metal' ]
               });
-  albums.push({
+    albums.push({
                 _id: 133,
                 artistName: 'Metallica',
                 name: 'Metallica',
                 releaseDate: '1991, August 12',
                 genres: [ 'heavy metal' ]
               });
-  albums.push({
+    albums.push({
                 _id: 134,
                 artistName: 'The Prodigy',
                 name: 'Music for the Jilted Generation',
                 releaseDate: '1994, July 4',
                 genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
               });
-  albums.push({
+    albums.push({
                 _id: 135,
                 artistName: 'Johnny Cash',
                 name: 'Unchained',
                 releaseDate: '1996, November 5',
                 genres: [ 'country', 'rock' ]
               });
-  ```
-  </details>
+    ```
+    </details>
 
 2. Also for continuity with later sprints, create a `seed.js` file in the base directory of your project. Add the following code to it:
 
-  <details><summary>click to expand</summary>
-  ```js
-  //seed.js
+    <details><summary>click to expand</summary>
+  
+    ```js
+    //seed.js
 
-  var db = require("./models");
+    var db = require("./models");
 
-  var albumsList =[
-    // data here soon!
-  ];
+    var albumsList =[
+        // data here soon!
+    ];
 
-  db.Album.remove({}, function(err, albums){
-    // code in here runs after all albums are removed
-    db.Album.create(albumsList, function(err, albums){
-      // code in here runs after all albums are created
-      if (err) { return console.log('ERROR', err); }
-      console.log("all albums:", albums);
-      console.log("created", albums.length, "albums");
-      process.exit();
-    });
-  });
-  ```
-  </details>
+    db.Album.remove({}, function(err, albums){
+        // code in here runs after all albums are removed
+        db.Album.create(albumsList, function(err, albums){
+            // code in here runs after all albums are created
+            if (err) { return console.log('ERROR', err); }
+            console.log("all albums:", albums);
+            console.log("created", albums.length, "albums");
+            process.exit();
+        });
+      });
+    ```
+  
+    </details>
 
 
 ## Sprint 0 Conclusion
