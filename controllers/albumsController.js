@@ -17,7 +17,21 @@ function index(req, res) {
 // POST /api/albums
 function create(req, res) {
   // create an album based on request body and send it back as JSON
-}
+  console.log('body: ' + req.body);
+  // split comma and remove trailing spaces
+  var genres = req.body.genres.split(',').map((el) => {
+    return el.trim();
+  });
+  req.body.genres = genres;
+
+  db.Album.create(req.body, function(err, album){
+    if(err) {
+      console.log('error: ' + err);
+    }
+    console.log(album);
+    res.json(album);
+  });
+};
 
 // GET /api/albums/:albumId
 function show(req, res) {

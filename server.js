@@ -5,8 +5,12 @@ var express = require('express');
 // generate a new express app and call it 'app'
 var app = express();
 
+bodyParser = require('body-parser');
+
+
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var controllers = require('./controllers');
 
@@ -31,6 +35,8 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 
 app.get('/api/albums', controllers.albums.index);
+
+app.post('/api/albums', controllers.albums.create);
 
 /**********
  * SERVER *
