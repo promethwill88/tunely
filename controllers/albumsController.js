@@ -41,6 +41,9 @@ function show(req, res) {
 // DELETE /api/albums/:albumId
 function destroy(req, res) {
   // find one album by id, delete it, and send it back as JSON
+  console.log('test123');
+
+
 }
 
 // PUT or PATCH /api/albums/:albumId

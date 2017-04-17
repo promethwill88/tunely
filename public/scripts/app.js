@@ -117,7 +117,8 @@ function handleAddSongClick(e) {
 
 function handleDeleteAlbumClick(e) {
   e.preventDefault();
-  console.log('test working!')
+  var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+  console.log(currentAlbumId);
 }
 
 // when the song modal submit button is clicked:
