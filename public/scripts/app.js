@@ -118,7 +118,11 @@ function handleAddSongClick(e) {
 function handleDeleteAlbumClick(e) {
   e.preventDefault();
   var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-  console.log(currentAlbumId);
+  $.ajax({
+    url: '/api/albums/' + albumId,
+    method: 'DELETE',
+    success: handleDeleteAlbumSuccess
+  });
 }
 
 // when the song modal submit button is clicked:

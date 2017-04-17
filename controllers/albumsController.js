@@ -33,6 +33,7 @@ function show(req, res) {
   // find one album by id and send it back as JSON
   db.Album.findById(req.params.albumId, function(err, foundAlbum) {
     if(err) { console.log('albumsController.show error', err); }
+    console.log(foundAlbum);
     console.log('albumsController.show responding with', foundAlbum);
     res.json(foundAlbum);
   });
@@ -41,9 +42,10 @@ function show(req, res) {
 // DELETE /api/albums/:albumId
 function destroy(req, res) {
   // find one album by id, delete it, and send it back as JSON
-  console.log('test123');
-
-
+  db.Album.findOneAndRemove({ _id: req.params.albumId }, function(err, foundAlbum){
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundAlbum);
+  });
 }
 
 // PUT or PATCH /api/albums/:albumId
